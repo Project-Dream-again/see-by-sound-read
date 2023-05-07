@@ -16,8 +16,14 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/food/[pid].tsx", "pages/firebase/db.ts"],
   "exclude": ["node_modules"]
 }
