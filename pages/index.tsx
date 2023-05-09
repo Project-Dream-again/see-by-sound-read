@@ -6,10 +6,10 @@ var texts = [
 var emojis = [
   '✨', '🌟', '💛', '👋'
 ];
-function random_emoji(){
+function random_emoji() {
   return emojis[Math.floor(Math.random() * emojis.length)];
 };
-function random_text(){
+function random_text() {
   return texts[Math.floor(Math.random() * texts.length)];
 };
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main className="full">
       <div>
-        <h1>With Touch</h1>
+        <h1>👀 By 🔈</h1>
         <h2>{text} {emoji}</h2>
       </div>
     </main>
