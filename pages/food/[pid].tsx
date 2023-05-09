@@ -14,17 +14,17 @@ const Post = (): JSX.Element => {
     // Firebase SDK 초기화
     if (!firebase.apps.length) {
       firebase.initializeApp({
-        apiKey: "AIzaSyDnNtF4yy8pdN85laIfnvP6rHBZHbl18A0",
-        authDomain: "with-touch.firebaseapp.com",
-        databaseURL: "https://with-touch-default-rtdb.asia-southeast1.firebasedatabase.app",
+        apiKey: process.env.FIREBASE_API_KEY,
+        authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+        databaseURL: process.env.FIREBASE_DATABASE_URL,
         projectId: "with-touch",
-        storageBucket: "with-touch.appspot.com",
-        messagingSenderId: "474339573185",
-        appId: "1:474339573185:web:81c7b66b253385e7428340",
-        measurementId: "G-6GWWBPYKNZ"
+        storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+        appId: process.env.FIREBASE_APP_ID,
+        measurementId: process.env.FIREBASE_MEASUREMENT_ID
       });
     }
-
+    console.log(process.env.FIREBASE_PROJECT_ID);
     // Firestore에서 문서 데이터 가져오기
     const db = firebase.firestore();
     const docRef = db.collection('foods').doc(pid as string);
@@ -47,17 +47,56 @@ const Post = (): JSX.Element => {
   if (!post) {
     return <div>Loading...</div>
   }
-  
-  getSpeech("바코드" + pid + post.name + post.discription);
-  return (
-    <div>
-      <p>바코드: {pid}</p>
+  if (post.whatisthing == "food") {
+    //getSpeech("바코드" + pid + post.name + post.discription);
+    return (
       <div>
-        <p>{post.name}</p>
-        <p>{post.discription}</p>
+        <p>🍔 바코드: {pid}</p>
+        <div>
+          <p>{post.name}</p>
+          <p>{post.discription}</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  else if (post.whatisthing == "drink") {
+    //getSpeech("바코드" + pid + post.name + post.discription);
+    return (
+      <div>
+        <p>🍹 바코드: {pid}</p>
+        <div>
+          <p>{post.name}</p>
+          <p>{post.discription}</p>
+        </div>
+      </div>
+    );
+  }
+  else if (post.whatisthing == "medicine") {
+    //getSpeech("바코드" + pid + post.name + post.discription);
+    return (
+      <div>
+        <p>💊 바코드: {pid}</p>
+        <div>
+          <p>{post.name}</p>
+          <p>{post.discription}</p>
+        </div>
+      </div>
+    );
+  }
+  else {
+    //getSpeech("바코드" + pid + post.name + post.discription);
+    return (
+      <div>
+        <p>❓ 바코드: {pid}</p>
+        <div>
+          <p>{post.name}</p>
+          <p>{post.discription}</p>
+          <p>{post.howtoeat}</p>
+          <p>{post.plscread}</p>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Post;
