@@ -47,56 +47,16 @@ const Post = (): JSX.Element => {
   if (!post) {
     return <div>Loading...</div>
   }
-  if (post.whatisthing == "food") {
-    //getSpeech("바코드" + pid + post.name + post.discription);
-    return (
+  //getSpeech("바코드" + pid + post.name + post.discription);
+  return (
+    <div>
+      <p>💡 바코드: {pid}</p>
       <div>
-        <p>🍔 바코드: {pid}</p>
-        <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
-        </div>
+        <p>{post.discription}</p>
       </div>
-    );
-  }
-  else if (post.whatisthing == "drink") {
-    //getSpeech("바코드" + pid + post.name + post.discription);
-    return (
-      <div>
-        <p>🍹 바코드: {pid}</p>
-        <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
-        </div>
-      </div>
-    );
-  }
-  else if (post.whatisthing == "medicine") {
-    //getSpeech("바코드" + pid + post.name + post.discription);
-    return (
-      <div>
-        <p>💊 바코드: {pid}</p>
-        <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
-        </div>
-      </div>
-    );
-  }
-  else {
-    //getSpeech("바코드" + pid + post.name + post.discription);
-    return (
-      <div>
-        <p>❓ 바코드: {pid}</p>
-        <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
-          <p>{post.howtoeat}</p>
-          <p>{post.plscread}</p>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
+
 };
 
 export default Post;

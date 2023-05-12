@@ -4,6 +4,7 @@ import 'firebase/compat/firestore';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getSpeech } from "../../utils/get_tts";
+import TableComponent from '../../utils/TableComponent';
 
 const Post = (): JSX.Element => {
   const router = useRouter();
@@ -27,7 +28,7 @@ const Post = (): JSX.Element => {
     console.log(process.env.FIREBASE_PROJECT_ID);
     // Firestore에서 문서 데이터 가져오기
     const db = firebase.firestore();
-    const docRef = db.collection('foods').doc(pid as string);
+    const docRef = db.collection('menu').doc(pid as string);
 
     docRef.get().then((doc) => {
       if (doc.exists) {
@@ -48,11 +49,15 @@ const Post = (): JSX.Element => {
     return <div>Loading...</div>
   }
   //getSpeech("바코드" + pid + post.name + post.discription);
+  const data= post
+  console.log(data);
+
   return (
     <div>
-      <p>📜 가게 이름: {pid}</p>
+      <p>📜 가게 이름: {post.name}</p>
       <div>
         <p>{post.discription}</p>
+        <TableComponent data={data} />
       </div>
     </div>
   );
