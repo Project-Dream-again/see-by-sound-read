@@ -1,9 +1,10 @@
-//  pages\food\[pid].tsx
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getSpeech } from "../../utils/get_tts";
+//import { getSpeech } from "../../utils/get_tts";
+import ReactAudioPlayer from 'react-audio-player';
 
 const Post = (): JSX.Element => {
   const router = useRouter();
@@ -47,12 +48,19 @@ const Post = (): JSX.Element => {
   if (!post) {
     return <div>Loading...</div>
   }
-  //getSpeech("바코드" + pid + post.name + post.discription);
+  //getSpeech("바코드" + pid + post.name + post.description);
   return (
     <div>
-      <p>💡 바코드: {pid}</p>
+      <ReactAudioPlayer
+        src="my_audio_file.ogg"
+        autoPlay
+        controls
+      />
       <div>
-        <p>{post.discription}</p>
+        <p>💡 바코드: {pid}</p>
+        <div>
+          <p>{post.description}</p>
+        </div>
       </div>
     </div>
   );

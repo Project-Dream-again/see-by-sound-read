@@ -1,9 +1,12 @@
-//  pages\food\[pid].tsx
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
+import "firebase/storage";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getSpeech } from "../../utils/get_tts";
+//import { getSpeech } from "../../utils/get_tts";
+import ReactAudioPlayer from 'react-audio-player';
+import TableComponent from '@/utils/food';
 
 const Post = (): JSX.Element => {
   const router = useRouter();
@@ -39,60 +42,124 @@ const Post = (): JSX.Element => {
     });
   }, [pid]);
 
-  //음성 변환 목소리 preload
-  useEffect(() => {
-    window.speechSynthesis.getVoices();
-  }, []);
+  let data: { [key: string]: any } = {};
 
   if (!post) {
     return <div>Loading...</div>
   }
   if (post.whatisthing == "food") {
-    //getSpeech("바코드" + pid + post.name + post.discription);
+    data = {
+      '영양정보': {
+        '': '',
+        '칼로리' : post.kcal,
+        '  ': '',
+        '나트륨': post.sodium,
+        '탄수화물': post.carbohydrates,
+        '당류': post.sugars,
+        '지방': post.fats,
+        '트랜스지방': post.trans_fats,
+        '포화지방': post.cholesterol,
+        '콜레스테롤': post.cholesterol,
+        '단백질': post.proteins,
+        ' ': ''
+      }
+    };
+    //getSpeech("바코드" + pid + post.name + post.description);
     return (
       <div>
-        <p>🍔 바코드: {pid}</p>
+        <ReactAudioPlayer
+          src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/"+pid+".mp3?alt=media"}
+          autoPlay
+          controls
+        />
         <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
+          <p>🍔 바코드: {pid}</p>
+          <div>
+            <p>{post.name}</p>
+            <p>{post.description}</p>
+            <br/>
+            <TableComponent data={data} />
+          </div>
         </div>
       </div>
     );
   }
   else if (post.whatisthing == "drink") {
-    //getSpeech("바코드" + pid + post.name + post.discription);
+    data = {
+      '영양정보': {
+        '': '',
+        '칼로리' : post.kcal,
+        '  ': '',
+        '나트륨': post.sodium,
+        '탄수화물': post.carbohydrates,
+        '당류': post.sugars,
+        '지방': post.fats,
+        '트랜스지방': post.trans_fats,
+        '포화지방': post.cholesterol,
+        '콜레스테롤': post.cholesterol,
+        '단백질': post.proteins,
+        ' ': ''
+      }
+    };
+    //getSpeech("바코드" + pid + post.name + post.description);
     return (
       <div>
-        <p>🍹 바코드: {pid}</p>
-        <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
+        <ReactAudioPlayer
+          src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/"+pid+".mp3?alt=media"}
+          autoPlay
+          controls
+        />
+        <div className="full">
+          <br/>
+          <p>🍹 바코드: {pid}</p>
+          <br/> 
+          <div>
+            <p>{post.name}</p>
+            <p>{post.description}</p>
+            <br/>
+            <TableComponent data={data} />
+          </div>
         </div>
       </div>
     );
   }
   else if (post.whatisthing == "medicine") {
-    //getSpeech("바코드" + pid + post.name + post.discription);
+    //getSpeech("바코드" + pid + post.name + post.description);
     return (
       <div>
-        <p>💊 바코드: {pid}</p>
+        <ReactAudioPlayer
+          src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/"+pid+".mp3?alt=media"}
+          autoPlay
+          controls
+        />
         <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
+          <p>💊 바코드: {pid}</p>
+          <div>
+            <p>{post.name}</p>
+            <p>{post.description}</p>
+            <p>{post.howtoeat}</p>
+            <p>{post.plscread}</p>
+          </div>
         </div>
       </div>
     );
   }
   else {
-    //getSpeech("바코드" + pid + post.name + post.discription);
+    //getSpeech("바코드" + pid + post.name + post.description);
     return (
       <div>
-        <p>❓ 바코드: {pid}</p>
+        <ReactAudioPlayer
+          src="my_audio_file.ogg"
+          autoPlay
+          controls
+        />
         <div>
-          <p>{post.name}</p>
-          <p>{post.discription}</p>
-          <p>{post.howtoeat}</p>
-          <p>{post.plscread}</p>
+          <p>❓ 바코드: {pid}</p>
+          <div>
+            <p>{post.name}</p>
+            <p>{post.description}</p>
+            
+          </div>
         </div>
       </div>
     );

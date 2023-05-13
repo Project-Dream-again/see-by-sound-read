@@ -1,10 +1,11 @@
-//  pages\food\[pid].tsx
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getSpeech } from "../../utils/get_tts";
-import TableComponent from '../../utils/TableComponent';
+//import { getSpeech } from "../../utils/get_tts";
+import ReactAudioPlayer from 'react-audio-player';
+import TableComponent from '../../utils/food';
 
 const Post = (): JSX.Element => {
   const router = useRouter();
@@ -48,16 +49,23 @@ const Post = (): JSX.Element => {
   if (!post) {
     return <div>Loading...</div>
   }
-  //getSpeech("바코드" + pid + post.name + post.discription);
+  //getSpeech("바코드" + pid + post.name + post.description);
   const data= post
   console.log(data);
 
   return (
     <div>
-      <p>📜 가게 이름: {post.name}</p>
+      <ReactAudioPlayer
+        src="my_audio_file.ogg"
+        autoPlay
+        controls
+      />
       <div>
-        <p>{post.discription}</p>
-        <TableComponent data={data} />
+        <p>📜 가게 이름: {post.name}</p>
+        <div>
+          <p>{post.description}</p>
+          <TableComponent data={data} />
+        </div>
       </div>
     </div>
   );
