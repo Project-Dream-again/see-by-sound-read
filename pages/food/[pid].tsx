@@ -49,6 +49,11 @@ const Post = (): JSX.Element => {
   }
   if (post.whatisthing == "food") {
     data = {
+      '소비자 가격': {
+        '': '',
+        '가격': post.money,
+        ' ': '',
+      },
       '영양정보': {
         '': '',
         '칼로리' : post.kcal,
@@ -64,7 +69,7 @@ const Post = (): JSX.Element => {
         ' ': ''
       }
     };
-    //getSpeech("바코드" + pid + post.name + post.description);
+    
     return (
       <div>
         <ReactAudioPlayer
@@ -86,6 +91,11 @@ const Post = (): JSX.Element => {
   }
   else if (post.whatisthing == "drink") {
     data = {
+      '소비자 가격': {
+        '': '',
+        '가격': post.money,
+        ' ': '',
+      },
       '영양정보': {
         '': '',
         '칼로리' : post.kcal,
@@ -101,7 +111,7 @@ const Post = (): JSX.Element => {
         ' ': ''
       }
     };
-    //getSpeech("바코드" + pid + post.name + post.description);
+    
     return (
       <div>
         <ReactAudioPlayer
@@ -124,7 +134,7 @@ const Post = (): JSX.Element => {
     );
   }
   else if (post.whatisthing == "medicine") {
-    //getSpeech("바코드" + pid + post.name + post.description);
+    
     return (
       <div>
         <ReactAudioPlayer
@@ -137,7 +147,7 @@ const Post = (): JSX.Element => {
           <div>
             <p>{post.name}</p>
             <p>{post.description}</p>
-            <p>{post.howtoeat}</p>
+            <p>{post.howtouse}</p>
             <p>{post.plscread}</p>
           </div>
         </div>
@@ -145,11 +155,11 @@ const Post = (): JSX.Element => {
     );
   }
   else {
-    //getSpeech("바코드" + pid + post.name + post.description);
+    
     return (
       <div>
         <ReactAudioPlayer
-          src="my_audio_file.ogg"
+          src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/"+pid+".mp3?alt=media"}
           autoPlay
           controls
         />

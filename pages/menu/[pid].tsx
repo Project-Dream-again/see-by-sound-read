@@ -1,9 +1,7 @@
-
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-//import { getSpeech } from "../../utils/get_tts";
 import ReactAudioPlayer from 'react-audio-player';
 import TableComponent from '../../utils/food';
 
@@ -41,22 +39,32 @@ const Post = (): JSX.Element => {
     });
   }, [pid]);
 
-  //음성 변환 목소리 preload
-  useEffect(() => {
-    window.speechSynthesis.getVoices();
-  }, []);
-
   if (!post) {
     return <div>Loading...</div>
   }
-  //getSpeech("바코드" + pid + post.name + post.description);
-  const data= post
+  
+  let data: { [key: string]: any } = {};
   console.log(data);
-
+  data = {
+    '영양정보': {
+      '': '',
+      '칼로리' : post.kcal,
+      '  ': '',
+      '나트륨': post.sodium,
+      '탄수화물': post.carbohydrates,
+      '당류': post.sugars,
+      '지방': post.fats,
+      '트랜스지방': post.trans_fats,
+      '포화지방': post.cholesterol,
+      '콜레스테롤': post.cholesterol,
+      '단백질': post.proteins,
+      ' ': ''
+    }
+  };
   return (
     <div>
       <ReactAudioPlayer
-        src="my_audio_file.ogg"
+        src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/"+pid+".mp3?alt=media"}
         autoPlay
         controls
       />
