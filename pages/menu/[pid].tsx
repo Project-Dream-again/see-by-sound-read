@@ -68,7 +68,7 @@ const Post = (): JSX.Element => {
         autoPlay
         controls
       />
-      <div>
+      <div className="full">
         <p>📜 가게 이름: {post.name}</p>
         <div>
           <p>{post.description}</p>
