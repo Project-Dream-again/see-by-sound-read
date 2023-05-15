@@ -63,7 +63,7 @@ const Post = (): JSX.Element => {
         '당류': post.sugars,
         '지방': post.fats,
         '트랜스지방': post.trans_fats,
-        '포화지방': post.cholesterol,
+        '포화지방': post.saturated_fat,
         '콜레스테롤': post.cholesterol,
         '단백질': post.proteins,
         ' ': ''
@@ -105,7 +105,7 @@ const Post = (): JSX.Element => {
         '당류': post.sugars,
         '지방': post.fats,
         '트랜스지방': post.trans_fats,
-        '포화지방': post.cholesterol,
+        '포화지방': post.saturated_fat,
         '콜레스테롤': post.cholesterol,
         '단백질': post.proteins,
         ' ': ''
