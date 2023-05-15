@@ -77,8 +77,10 @@ const Post = (): JSX.Element => {
           autoPlay
           controls
         />
-        <div>
+        <div className="full">
+          <br/>
           <p>🍔 바코드: {pid}</p>
+          <br/> 
           <div>
             <p>{post.name}</p>
             <p>{post.description}</p>
