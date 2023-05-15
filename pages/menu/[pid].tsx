@@ -46,18 +46,9 @@ const Post = (): JSX.Element => {
   let data: { [key: string]: any } = {};
   console.log(data);
   data = {
-    '영양정보': {
+    post: {
       '': '',
-      '칼로리' : post.kcal,
-      '  ': '',
-      '나트륨': post.sodium,
-      '탄수화물': post.carbohydrates,
-      '당류': post.sugars,
-      '지방': post.fats,
-      '트랜스지방': post.trans_fats,
-      '포화지방': post.cholesterol,
-      '콜레스테롤': post.cholesterol,
-      '단백질': post.proteins,
+      
       ' ': ''
     }
   };

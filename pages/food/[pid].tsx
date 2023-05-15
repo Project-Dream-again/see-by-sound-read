@@ -147,8 +147,9 @@ const Post = (): JSX.Element => {
           <div>
             <p>{post.name}</p>
             <p>{post.description}</p>
-            <p>{post.howtouse}</p>
-            <p>{post.plscread}</p>
+            <p>소비자 가격 : {post.money}</p>
+            <p>사용법 : {post.howtouse}</p>
+            <p>주의사항 : {post.plscread}</p>
           </div>
         </div>
       </div>
@@ -167,8 +168,8 @@ const Post = (): JSX.Element => {
           <p>❓ 바코드: {pid}</p>
           <div>
             <p>{post.name}</p>
+            <p>종류 : {post.whatisthing}</p>
             <p>{post.description}</p>
-            
           </div>
         </div>
       </div>
