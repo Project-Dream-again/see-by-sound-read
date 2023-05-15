@@ -142,7 +142,7 @@ const Post = (): JSX.Element => {
           autoPlay
           controls
         />
-        <div  className="full">
+        <div className="full">
           <p>💊 바코드: {pid}</p>
           <div>
             <p>{post.name}</p>
