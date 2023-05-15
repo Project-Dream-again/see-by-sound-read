@@ -66,6 +66,7 @@ const Post = (): JSX.Element => {
         '포화지방': post.saturated_fat,
         '콜레스테롤': post.cholesterol,
         '단백질': post.proteins,
+        '칼슘' : post.calcium,
         ' ': ''
       }
     };
@@ -110,6 +111,7 @@ const Post = (): JSX.Element => {
         '포화지방': post.saturated_fat,
         '콜레스테롤': post.cholesterol,
         '단백질': post.proteins,
+        '칼슘' : post.calcium,
         ' ': ''
       }
     };
