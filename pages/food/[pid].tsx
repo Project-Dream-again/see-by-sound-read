@@ -45,7 +45,7 @@ const Post = (): JSX.Element => {
   let data: { [key: string]: any } = {};
 
   if (!post) {
-    return <div>Loading...</div>
+    return <div className="full">Loading...</div>
   }
   if (post.whatisthing == "food") {
     data = {
