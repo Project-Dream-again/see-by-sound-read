@@ -51,7 +51,7 @@ const Post = (): JSX.Element => {
     data = {
       '소비자 가격': {
         '': '',
-        '가격': post.money,
+        '가격': post.price,
         ' ': '',
       },
       '영양정보': {
@@ -93,7 +93,7 @@ const Post = (): JSX.Element => {
     data = {
       '소비자 가격': {
         '': '',
-        '가격': post.money,
+        '가격': post.price,
         ' ': '',
       },
       '영양정보': {
@@ -147,7 +147,8 @@ const Post = (): JSX.Element => {
           <div>
             <p>{post.name}</p>
             <p>{post.description}</p>
-            <p>소비자 가격 : {post.money}</p>
+            <br/>
+            <p>소비자 가격 : {post.price}</p>
             <p>사용법 : {post.howtouse}</p>
             <p>주의사항 : {post.plscread}</p>
           </div>
@@ -164,7 +165,7 @@ const Post = (): JSX.Element => {
           autoPlay
           controls
         />
-        <div>
+        <div className="full">
           <p>❓ 바코드: {pid}</p>
           <div>
             <p>{post.name}</p>
