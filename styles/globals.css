@@ -9,10 +9,6 @@
   font-style: normal;
 }
 
-body {
-  text-align: center;
-}
-
 h1 {
   font-family: 'SDSamliphopangche_Outline';
   font-size: 64pt;
@@ -22,11 +18,16 @@ h2 {
   font-size: 18pt;
 }
 
+body {
+  margin: 0;
+  text-align: center;
+  overflow-y: hidden;
+}
+
 .full {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   flex-direction: column;
 }
