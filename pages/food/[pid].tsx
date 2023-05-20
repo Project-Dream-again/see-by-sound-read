@@ -85,7 +85,7 @@ const Post = (): JSX.Element => {
               <p>주의사항: {post.plsread}</p>
             </>
           )}
-          {post.whatisthing !== 'medicine' && (
+          {post.whatisthing !== 'medicine' && post && (
             <TableComponent data={data} />
           )}
         </div>
