@@ -24,6 +24,6 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/food/[pid].tsx", "pages/firebase/db.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/food/[pid].tsx", "pages/firebase/db.ts", "utils/.menu.tsx"],
   "exclude": ["node_modules"]
 }

@@ -45,13 +45,7 @@ const Post = (): JSX.Element => {
   
   let data: { [key: string]: any } = {};
   console.log(data);
-  data = {
-    post: {
-      '': '',
-      
-      ' ': ''
-    }
-  };
+  data = post.menu
   return (
     <div>
       <ReactAudioPlayer
