@@ -22,7 +22,7 @@ body {
   margin: 0;
   text-align: center;
   overflow-y: hidden;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .full {
