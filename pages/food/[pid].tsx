@@ -81,11 +81,10 @@ const Post = (): JSX.Element => {
             <>
               <br/>
               <p>소비자 가격: {post.price}</p>
-              <p>사용법: </p>
+              <p>복용법: </p>
               <p dangerouslySetInnerHTML={ {__html: post.howtouse} }/>
               <br/>
-              <p>주의사항: </p>
-              <p dangerouslySetInnerHTML={ {__html: post.plsread} }/>
+              <p>주의사항: {post.plsread}</p>
             </>
           )}
           {post.whatisthing !== 'medicine' && post && (
