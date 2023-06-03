@@ -42,11 +42,11 @@ const Post = (): JSX.Element => {
   if (!post) {
     return <div>Loading...</div>
   }
-  
+
   return (
     <div>
       <ReactAudioPlayer
-        src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/"+pid+".mp3?alt=media"}
+        src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/" + pid + ".mp3?alt=media"}
         autoPlay
         controls
       />

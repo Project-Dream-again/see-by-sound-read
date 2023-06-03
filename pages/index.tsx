@@ -20,12 +20,15 @@ export default function Home() {
     setText(random_text());
   }, []);
   return (
-    <main>
-      <div className="full">
+    <main className="full">
+      <div className='tittle-div'>
         <h1>👀 By 🔈</h1>
         <h2>{text} {emoji}</h2>
+      </div >
+      <div className='footer-div'>
+        <footer>©️ Project. Dream Again</footer>
+        <footer>Everyday I only dreamed about it.</footer>
       </div>
-      <footer>©️ Project. Dream Again</footer>
-    </main>
+    </main >
   )
 }

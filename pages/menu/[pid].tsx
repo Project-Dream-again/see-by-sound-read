@@ -3,7 +3,7 @@ import 'firebase/compat/firestore';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import TableComponent from '../../utils/food';
+import TableComponent from '@/utils/menu';
 
 const Post = (): JSX.Element => {
   const router = useRouter();
@@ -42,14 +42,14 @@ const Post = (): JSX.Element => {
   if (!post) {
     return <div>Loading...</div>
   }
-  
+
   let data: { [key: string]: any } = {};
   console.log(data);
   data = post.menu
   return (
     <div>
       <ReactAudioPlayer
-        src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/"+pid+".mp3?alt=media"}
+        src={"https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/" + pid + ".mp3?alt=media"}
         autoPlay
         controls
       />

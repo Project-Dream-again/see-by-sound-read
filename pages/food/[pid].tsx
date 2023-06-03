@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import TableComponent from '@/utils/food';
+
 const Post = (): JSX.Element => {
   const router = useRouter();
   const { pid } = router.query;
@@ -59,31 +60,28 @@ const Post = (): JSX.Element => {
   };
   return (
     <div>
-      <ReactAudioPlayer
-        src={`https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/${pid}.mp3?alt=media`}
-        autoPlay
-        controls
-      />
+      <ReactAudioPlayer src={`https://firebasestorage.googleapis.com/v0/b/with-touch.appspot.com/o/${pid}.mp3?alt=media`} autoPlay controls />
+
       <div className="full">
-        <br/>
+        <br />
         <p>{
-          post.whatisthing === 'food' ? 
-          '🍔' : post.whatisthing === 'drink' ? 
-          '🍹' : post.whatisthing === 'medicine' ? 
-          '💊' : '❓'
-          } 바코드: {pid}
+          post.whatisthing === 'food' ?
+            '🍔' : post.whatisthing === 'drink' ?
+              '🍹' : post.whatisthing === 'medicine' ?
+                '💊' : '❓'
+        } 바코드: {pid}
         </p>
-        <br/> 
+        <br />
         <div>
           <p>{post.name}</p>
           <p>{post.description}</p>
           {post.whatisthing === 'medicine' && (
             <>
-              <br/>
+              <br />
               <p>소비자 가격: {post.price}</p>
               <p>복용법: </p>
-              <p dangerouslySetInnerHTML={ {__html: post.howtouse} }/>
-              <br/>
+              <p dangerouslySetInnerHTML={{ __html: post.howtouse }} />
+              <br />
               <p>주의사항: {post.plsread}</p>
             </>
           )}
@@ -92,7 +90,7 @@ const Post = (): JSX.Element => {
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 export default Post;
