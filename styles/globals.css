@@ -21,12 +21,12 @@ h2 {
 body {
   margin: 0;
   text-align: center;
-  overflow-y: hidden;
+  overflow: scroll;
   white-space: pre-line;
 }
 
 .full {
-  height: 100vh;
+  overflow: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,4 +54,29 @@ body {
     flex-direction: column;
     white-space: pre-line;
     background-color: #fce1de;
+}
+
+.rounded-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: scroll;
+}
+
+.rounded-table th,
+.rounded-table td {
+  padding: 10px;
+}
+
+.rounded-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.rounded-table tr {
+  background-color: #fff;
+}
+
+.rounded-table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
