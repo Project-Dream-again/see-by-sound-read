@@ -14,7 +14,7 @@ interface TableComponentProps {
 
 const TableComponent: React.FC<TableComponentProps> = ({ data }) => {
   return (
-    <table>
+    <table className="rounded-table">
       <tbody>
         {Object.entries(data).map(([category, menus]) => (
           <>
@@ -32,6 +32,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ data }) => {
                   <td>{price}</td>
                 </tr>
               ))}
+              <tr style={{ height: '20px' }}></tr>
           </>
         ))}
       </tbody>
